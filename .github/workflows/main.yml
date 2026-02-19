@@ -13,14 +13,15 @@ on:
           - android-10.0
           - main
       twrp_manifest_branch:
-        description: 'TWRP minimal manifest branch (对应 Android 版本)'
+        description: 'TWRP minimal manifest branch (omni)'
         required: true
-        default: 'android-11.0'
+        default: 'twrp-10.0-deprecated'
         type: choice
         options:
-          - android-11.0    # 用于 Android 11
-          - android-10.0    # 用于 Android 10
-          - android-12.0    # 如果未来需要
+          - twrp-10.0-deprecated
+          # 如果还有其他已知存在的分支，可以继续添加，例如：
+          # - twrp-11.0
+          # - master
 
 jobs:
   build:

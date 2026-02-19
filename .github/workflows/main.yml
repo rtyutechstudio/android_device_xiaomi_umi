@@ -19,9 +19,6 @@ on:
         type: choice
         options:
           - twrp-10.0-deprecated
-          # 如果还有其他已知存在的分支，可以继续添加，例如：
-          # - twrp-11.0
-          # - master
 
 jobs:
   build:
@@ -74,14 +71,10 @@ jobs:
           cd twrp
           repo sync --force-sync --no-tags --no-clone-bundle -j$(nproc)
 
-      - name: Set up build environment
-        run: |
-          cd twrp
-          source build/envsetup.sh
-
       - name: Build recovery image
         run: |
           cd twrp
+          source build/envsetup.sh
           lunch omni_umi-eng
           mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true
         env:
